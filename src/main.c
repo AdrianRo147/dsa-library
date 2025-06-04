@@ -1,4 +1,4 @@
-#include "../tests/dsa/structures/static_array/static_array.h"
+#include "../tests/dsa/structures/dynamic_array/dynamic_array.h"
 
 #include <CUnit/CUnit.h>
 #include <CUnit/Basic.h>
@@ -8,7 +8,7 @@ int main()
     if (CU_initialize_registry() != CUE_SUCCESS)
         return CU_get_error();
 
-    register_static_array_tests();
+    register_dynamic_array_tests();
 
     CU_basic_set_mode(CU_BRM_VERBOSE);
     CU_basic_run_tests();
