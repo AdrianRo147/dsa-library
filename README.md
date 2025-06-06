@@ -3,10 +3,10 @@
   
   <p>dsa-library is open-source collection of self-made data structures and algorithms made in C.</p>
 
-  <img src="https://badgen.net/github/license/adrianro147/dsa-library">
-  <img src="https://badgen.net/github/stars/adrianro147/dsa-library">
-  <img src="https://badgen.net/github/contributors/adrianro147/dsa-library">
-  <img src="https://badgen.net/github/commits/adrianro147/dsa-library">
+  <img src="http://badgen.net/github/license/adrianro147/dsa-library">
+  <img src="http://badgen.net/github/stars/adrianro147/dsa-library">
+  <img src="http://badgen.net/github/contributors/adrianro147/dsa-library">
+  <img src="http://badgen.net/github/commits/adrianro147/dsa-library">
 </div>
 
 ## Repository Details
@@ -40,10 +40,10 @@ cmake -B build
 cmake --build build
 ```
 
-To run tests you can start output binary with `--test` argument
+To run tests you can start output binary
 
 ```
-./build/out --test
+./build/out
 ```
 
 For detailed documentation about library structures and algorithms see [Wiki](https://github.com/AdrianRo147/dsa-library/wiki/Library-Documentation)
