@@ -4,6 +4,7 @@ project(dsa-library C)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
+add_compile_options(-Wall -Wextra -Wpedantic)
 
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(CUNIT REQUIRED cunit)
