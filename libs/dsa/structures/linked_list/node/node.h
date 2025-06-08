@@ -9,8 +9,8 @@ typedef struct _Node
 
 /**
  * @brief Initialize Node.
- * @param node Pointer to allocated node. Should be heap allocated.
- * @param data Pointer to data to set. If there's no data to set, use NULL.
+ * @param node Pointer to heap allocated node.
+ * @param data Pointer to heap allocated data to set. If there's no data to set, use NULL.
  */
 extern void node_init(Node * const node, void * const data);
 

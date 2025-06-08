@@ -3,10 +3,10 @@
 #include <stddef.h>
 #include <stdlib.h>
 
-/**
+ /**
  * @brief Initialize Node.
- * @param node Pointer to already allocated node.
- * @param data Pointer to data to set. If there's no data to set, use NULL.
+ * @param node Pointer to heap allocated node.
+ * @param data Pointer to heap allocated data to set. If there's no data to set, use NULL.
  */
 void node_init(Node * const node, void * const data)
 {
