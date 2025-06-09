@@ -8,13 +8,15 @@
  * @param node Pointer to heap allocated node.
  * @param data Pointer to heap allocated data to set. If there's no data to set, use NULL.
  */
-void node_init(Node * const node, void * const data)
+bool node_init(Node * const node, void * const data)
 {
     if (node == NULL)
-        return;
+        return false;
 
     node->data = data;
     node->next = NULL;
+
+    return true;
 }
 
 /**
@@ -45,15 +47,17 @@ Node *node_push(Node * const node, void * const data)
  * @param node Pointer to first node.
  * @param target Pointer to target node to remove.
  */
-void node_pop(Node * const node, const Node * const target)
+bool node_pop(Node * const node, const Node * const target)
 {
     if (node == NULL || target == NULL)
-        return;
+        return false;
 
     if (node == target)
     {
         free(node->data);
         node->data = NULL;
+
+        return true;
     }
 
     Node *previous = NULL;
@@ -81,8 +85,12 @@ void node_pop(Node * const node, const Node * const target)
 
             previous = current;
             current = next;
+
+            return true;
         }
     }
+
+    return false;
 }
 
 /**
@@ -115,10 +123,10 @@ Node *node_get_node(Node * const node, const void * const data)
  * @brief Destroys nodes.
  * @param node Pointer to first node.
  */
-void node_destroy(Node * const node)
+bool node_destroy(Node * const node)
 {
     if (node == NULL)
-        return;
+        return false;
 
     Node *current = node;
 
@@ -136,4 +144,6 @@ void node_destroy(Node * const node)
 
         current = next;
     }
+
+    return true;
 }
