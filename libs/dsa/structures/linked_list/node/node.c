@@ -47,17 +47,17 @@ Node *node_push(Node * const node, void * const data)
  * @param node Pointer to first node.
  * @param target Pointer to target node to remove.
  */
-bool node_pop(Node * const node, const Node * const target)
+Node *node_pop(Node * const node, const Node * const target)
 {
     if (node == NULL || target == NULL)
-        return false;
+        return NULL;
 
     if (node == target)
     {
         free(node->data);
         node->data = NULL;
 
-        return true;
+        return node;
     }
 
     Node *previous = NULL;
@@ -86,11 +86,11 @@ bool node_pop(Node * const node, const Node * const target)
             previous = current;
             current = next;
 
-            return true;
+            return previous;
         }
     }
 
-    return false;
+    return NULL;
 }
 
 /**

@@ -30,7 +30,7 @@ extern Node *node_push(Node * const node, void * const data);
  * @param node Pointer to first node.
  * @param target Pointer to target node to remove.
  */
-extern bool node_pop(Node * const node, const Node * const target);
+extern Node *node_pop(Node * const node, const Node * const target);
 
 /**
  * @brief Gets node using data pointer.
