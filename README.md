@@ -46,8 +46,6 @@ To run tests you can start output binary
 ./build/out
 ```
 
-For detailed documentation about library structures and algorithms see [Wiki](https://github.com/AdrianRo147/dsa-library/wiki/Library-Documentation)
-
 ## Contributing
 
 Feel free to fork the project and submit pull requests. For major changes, please open an issue first.
