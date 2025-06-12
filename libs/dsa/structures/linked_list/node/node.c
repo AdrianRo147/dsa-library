@@ -14,6 +14,7 @@ bool node_init(Node * const node, void * const data)
         return false;
 
     node->data = data;
+    node->prev = NULL;
     node->next = NULL;
 
     return true;
@@ -35,6 +36,7 @@ Node *node_push(Node * const node, void * const data)
 
     Node *new_node = (Node*)malloc(sizeof(Node));
     new_node->data = data;
+    new_node->prev = node;
     new_node->next = NULL;
 
     node->next = new_node;
@@ -60,7 +62,6 @@ Node *node_pop(Node * const node, const Node * const target)
         return node;
     }
 
-    Node *previous = NULL;
     Node *current = node;
 
     while (current != NULL)
@@ -78,15 +79,14 @@ Node *node_pop(Node * const node, const Node * const target)
             free(current);
             current = NULL;
 
-            if (previous != NULL)
+            if (current->prev != NULL)
             {
-                previous->next = next;
+                current->prev->next = next;
             }
 
-            previous = current;
             current = next;
 
-            return previous;
+            return current->prev;
         }
     }
 

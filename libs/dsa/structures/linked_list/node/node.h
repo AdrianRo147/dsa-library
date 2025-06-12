@@ -6,6 +6,7 @@
 typedef struct _Node
 {
     void *data;
+    struct _Node *prev;
     struct _Node *next;
 } Node;
 
