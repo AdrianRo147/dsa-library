@@ -48,9 +48,10 @@ bool stack_remove(Stack *stack)
     if (stack == NULL)
         return false;
 
-    Node *target = node_get_node(stack->list->start, stack->list->end->data);
+    if (stack->list == NULL)
+        return false;
 
-    return linked_list_remove(stack->list, target);
+    return linked_list_remove(stack->list, stack->list->end);
 }
 
 /**
