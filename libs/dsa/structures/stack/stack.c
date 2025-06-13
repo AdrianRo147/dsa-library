@@ -10,6 +10,9 @@
  */
 bool stack_init(Stack *stack, void *data)
 {
+    if (stack == NULL)
+        return false;
+
     stack->list = malloc(sizeof(LinkedList));
 
     if (stack->list == NULL)
@@ -99,5 +102,11 @@ bool stack_destroy(Stack *stack)
     if (stack == NULL)
         return false;
 
-    return linked_list_destroy(stack->list);
+    if (!linked_list_destroy(stack->list))
+        return false;
+
+    free(stack->list);
+    free(stack);
+
+    return true;
 }

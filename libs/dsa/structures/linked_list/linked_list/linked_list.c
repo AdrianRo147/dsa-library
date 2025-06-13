@@ -51,6 +51,22 @@ bool linked_list_insert(LinkedList * const list, void * const data)
     if (list == NULL || data == NULL)
         return false;
 
+    if (list->end == NULL && list->start == NULL && list->size == 0)
+    {
+        list->start = (Node*)malloc(sizeof(Node));
+
+        if (!node_init(list->start, data))
+        {
+            free(list->start);
+            return false;
+        }
+
+        list->end = list->start;
+        list->size = 1;
+
+        return true;
+    }
+
     if (list->end == NULL)
         return false;
 
