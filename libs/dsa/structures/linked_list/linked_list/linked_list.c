@@ -91,8 +91,28 @@ bool linked_list_remove(LinkedList * const list, Node * const target)
 
     if (list->start->data == NULL && list->start->next != NULL)
     {
-        free(list->start);
-        list->start = previous->next;
+        if (previous->prev == NULL)
+        {
+            Node *next = previous->next;
+            free(previous);
+            list->start = next;
+            list->size--;
+            return true;
+        }
+        else
+        {
+            free(list->start);
+            list->start = previous->next;
+            list->size--;
+            return true;
+        }
+    }
+
+    if (list->size == 1 && previous->next == NULL && previous->prev == NULL)
+    {
+        free(previous);
+        list->start = NULL;
+        list->end = NULL;
     }
 
     list->size--;
@@ -107,7 +127,13 @@ bool linked_list_remove(LinkedList * const list, Node * const target)
  */
 bool linked_list_destroy(LinkedList * const list)
 {
-    if (node_destroy(list->start))
+    if (list == NULL)
+        return false;
+
+    if (list->size == 0)
+        return true;
+
+    if (!node_destroy(list->start))
         return false;
 
     list->start = NULL;
