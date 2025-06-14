@@ -62,6 +62,14 @@ Node *node_pop(Node * const node, const Node * const target)
         if (node->next != NULL)
             node->next->prev = NULL;
 
+        if (node->prev != NULL)
+        {
+            if (node->next != NULL)
+                node->prev->next = node->next;
+            else
+                node->prev->next = NULL;
+        }
+
         return node;
     }
 
