@@ -95,6 +95,28 @@ bool linked_list_remove(LinkedList * const list, Node * const target)
     if (list->start == NULL)
         return false;
 
+    if (target == list->end)
+    {
+        Node *node = node_pop(list->end, list->end);
+
+        if (node->prev != NULL)
+        {
+            list->end = node->prev;
+            list->size--;
+        }
+        else
+        {
+            list->start = NULL;
+            list->end = NULL;
+            list->size = 0;
+        }
+
+        free(node);
+        node = NULL;
+
+        return true;
+    }
+
     Node *previous = node_pop(list->start, target);
 
     if (previous == NULL)

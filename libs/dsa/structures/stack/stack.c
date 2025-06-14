@@ -54,7 +54,12 @@ bool stack_remove(Stack *stack)
     if (stack->list == NULL)
         return false;
 
+    if (stack->list->size == 0 || stack->list->start == NULL || stack->list->end == NULL)
+        return false;
+
     return linked_list_remove(stack->list, stack->list->end);
+
+    return true;
 }
 
 /**
