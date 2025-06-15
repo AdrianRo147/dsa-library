@@ -114,7 +114,6 @@ bool queue_destroy(Queue *queue)
     if (!linked_list_destroy(queue->list))
         return false;
 
-    free(queue->list);
     free(queue);
 
     return true;
