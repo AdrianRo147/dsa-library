@@ -169,7 +169,10 @@ bool linked_list_destroy(LinkedList * const list)
         return false;
 
     if (list->size == 0)
+    {
+        free(list);
         return true;
+    }
 
     if (!node_destroy(list->start))
         return false;

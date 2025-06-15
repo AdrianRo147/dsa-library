@@ -110,7 +110,6 @@ bool stack_destroy(Stack *stack)
     if (!linked_list_destroy(stack->list))
         return false;
 
-    free(stack->list);
     free(stack);
 
     return true;

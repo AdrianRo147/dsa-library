@@ -373,7 +373,6 @@ void test_linked_list_init_with_data(void)
     CU_ASSERT_PTR_NULL(list->start->prev);
     
     linked_list_destroy(list);
-    free(list);
 }
 
 void test_linked_list_init_with_null_data(void)
@@ -389,7 +388,6 @@ void test_linked_list_init_with_null_data(void)
     CU_ASSERT_PTR_NULL(list->end);
     
     linked_list_destroy(list);
-    free(list);
 }
 
 void test_linked_list_init_with_null_list(void)
@@ -426,7 +424,6 @@ void test_linked_list_insert_single(void)
     CU_ASSERT_PTR_EQUAL(list->end->data, (void*)test_data2);
     
     linked_list_destroy(list);
-    free(list);
 }
 
 void test_linked_list_insert_multiple(void)
@@ -452,7 +449,6 @@ void test_linked_list_insert_multiple(void)
     CU_ASSERT_PTR_EQUAL(list->end->data, (void*)test_data3);
     
     linked_list_destroy(list);
-    free(list);
 }
 
 void test_linked_list_insert_with_null_list(void)
@@ -488,7 +484,6 @@ void test_linked_list_remove_first_node(void)
     CU_ASSERT_PTR_EQUAL(list->start->data, (void*)test_data2);
     
     linked_list_destroy(list);
-    free(list);
 }
 
 void test_linked_list_remove_last_node(void)
@@ -513,7 +508,6 @@ void test_linked_list_remove_last_node(void)
     CU_ASSERT_PTR_EQUAL(list->start->data, (void*)test_data1);
     
     linked_list_destroy(list);
-    free(list);
 }
 
 void test_linked_list_remove_middle_node(void)
@@ -543,7 +537,6 @@ void test_linked_list_remove_middle_node(void)
     CU_ASSERT_PTR_EQUAL(list->end->data, (void*)test_data3);
     
     linked_list_destroy(list);
-    free(list);
 }
 
 void test_linked_list_remove_single_node(void)
@@ -562,8 +555,8 @@ void test_linked_list_remove_single_node(void)
     CU_ASSERT_EQUAL(list->size, 0);
     CU_ASSERT_PTR_NULL(list->start);
     CU_ASSERT_PTR_NULL(list->end);
-    
-    free(list);
+
+    linked_list_destroy(list);
 }
 
 void test_linked_list_remove_with_null_list(void)
@@ -586,7 +579,6 @@ void test_linked_list_remove_with_null_target(void)
     CU_ASSERT_FALSE(result);
     
     linked_list_destroy(list);
-    free(list);
 }
 
 void test_linked_list_destroy_empty(void)
@@ -600,8 +592,6 @@ void test_linked_list_destroy_empty(void)
     bool result = linked_list_destroy(list);
     
     CU_ASSERT_TRUE(result);
-    
-    free(list);
 }
 
 void test_linked_list_destroy_single(void)
@@ -616,8 +606,6 @@ void test_linked_list_destroy_single(void)
     bool result = linked_list_destroy(list);
     
     CU_ASSERT_TRUE(result);
-    
-    free(list);
 }
 
 void test_linked_list_destroy_multiple(void)
@@ -640,8 +628,6 @@ void test_linked_list_destroy_multiple(void)
     bool result = linked_list_destroy(list);
     
     CU_ASSERT_TRUE(result);
-    
-    free(list);
 }
 
 void test_linked_list_destroy_with_null(void)
@@ -685,7 +671,6 @@ void test_integration_complex_operations(void)
     CU_ASSERT_PTR_EQUAL(list->end->data, test_string1);
     
     linked_list_destroy(list);
-    free(list);
 }
 
 void test_integration_node_operations(void)
