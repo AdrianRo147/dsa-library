@@ -178,5 +178,7 @@ bool linked_list_destroy(LinkedList * const list)
     list->end = NULL;
     list->size = 0;
 
+    free(list);
+
     return true;
 }
